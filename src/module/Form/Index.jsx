@@ -41,14 +41,8 @@ function Form({isloggedin = false,})
 
     const handleSubmit= async (e)=>{
       e.preventDefault();
-      const config = {
-        headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
-        }
-      };
     
-       const url = `https://serverapi-eta.vercel.app/api/${isloggedin ? 'login':'register',config}`;
+       const url = `https://serverapi-eta.vercel.app/api/${isloggedin ? 'login':'register'}`;
        const payload ={
         email:data.email,
         password:data.password,
