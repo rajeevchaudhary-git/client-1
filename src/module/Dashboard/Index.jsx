@@ -45,7 +45,7 @@ function Dashboard() {
    
   };
   const socket = useMemo(() => {
-    return io("http://localhost:3000/user-namespace");
+    return io("https://serverapi-eta.vercel.app/user-namespace");
   }, []);
 
   useEffect(() => {
