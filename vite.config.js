@@ -10,7 +10,7 @@ export default defineConfig({
       '/api1': {
         target: 'https://serverapi-2.vercel.app', // The backend server URL
         changeOrigin: true,
-        secure: false, // If the backend server is using HTTPS, set this to true
+        secure: true, // If the backend server is using HTTPS, set this to true
         rewrite: (path) => path.replace(/^\/api/, '') // Optional: rewrite the URL path
       }
     }
