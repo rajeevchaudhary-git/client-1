@@ -45,7 +45,10 @@ function Dashboard() {
    
   };
   const socket = useMemo(() => {
-    return io("https://serverapi-2.vercel.app/user-namespace");
+    return io("https://serverapi-2.vercel.app/user-namespace", {
+      withCredentials: true, // Ensure credentials are sent with the request
+      transports: ["websocket", "polling"] // Explicitly set transport methods
+    });
   }, []);
 
   useEffect(() => {
