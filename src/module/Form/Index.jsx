@@ -42,7 +42,7 @@ function Form({isloggedin = false,})
     const handleSubmit= async (e)=>{
       e.preventDefault();
     
-       const url = `https://serverapi-eta.vercel.app/api/${isloggedin ? 'login':'register'}`;
+       const url = `https://serverapi-2.vercel.app//api/${isloggedin ? 'login':'register'}`;
        const payload ={
         email:data.email,
         password:data.password,
@@ -50,7 +50,13 @@ function Form({isloggedin = false,})
 
        }
        try{
-      const response = await axios.post(url,payload); // multiple id can be genrated with single mail;
+      const response = await axios.post(url,payload,{
+        headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Bearer token' // If you have any auth headers
+    },
+    withCredentials: true
+      }); // multiple id can be genrated with single mail;
       console.log(response); 
        if(location.pathname=='/sign-in'){
         if(response.data.token.token){
