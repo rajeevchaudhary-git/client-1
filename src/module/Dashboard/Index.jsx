@@ -131,36 +131,36 @@ function Dashboard() {
         pauseOnHover
       />
 
-      <div className="chatlisting">
+           <div className="chatlisting">
         <div className="chat">
           <div className="search_chat">
             <div style={{ display: "flex" }}>
-              <h1 className="mt-2 font-normal">Chats</h1>
+              <h1 className="mt-2 text-white text-3xl font-semibold">Chats</h1>
               <div
                 style={{
                   fontSize: "larger",
-                  marginLeft: "200px",
+                  marginLeft: "160px",
                   marginTop: "8px",
                 }}
               >
                 <h2
-                  className="cursor-pointer flex items-center"
+                  className="cursor-pointer flex items-center text-white"
                   onClick={() => setShowDropdown(!showDropdown)}
                 >
-                  <i className="fa-solid fa-user"></i> {user.name}
+                  <i className="fa-solid fa-user"></i>&nbsp; {user.name}
                 </h2>
                 {showDropdown && (
-                  <div className="z-10 absolute right-0 mt-2 w-48 bg-grey border border-gray-300 rounded shadow-lg">
+                  <div className="z-10 absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded shadow-lg">
                     <ul className="py-1">
                       <li>
                         <button
                           onClick={handleLogout}
                           className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
-                        >
+                        > <i className="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;
                           Logout
                         </button>
                         <button className="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">
-                         <Link to={"/users"}>Add Friends</Link> 
+                         <Link to={"/users"}><i className="fa-solid fa-user-plus"> &nbsp;</i>Add Friends</Link> 
                         </button>
                       </li>
                     </ul>
@@ -168,14 +168,11 @@ function Dashboard() {
                 )}{" "}
               </div>
             </div>
-            <div>
-              <i className="fa-solid fa-magnifying-glass toggle"></i>
-              <input
-                type="search"
-                placeholder="Search or start a new chat"
-                id="input"
-              />
-            </div>
+    
+            <form className="example" >
+  <button type="submit"><i className="fa fa-search"></i></button>
+  <input type="text" placeholder="Search or start a new chat" name="search2"/>
+</form>
           </div>
         </div>
         <div className="chat_div">
@@ -184,7 +181,7 @@ function Dashboard() {
                 <div
                   key={conversation_id}
                   onClick={() => fetchMessage(conversation_id, users)}
-                  className="chat_profile cursor-pointer"
+                  className="chat_profile cursor-pointer "
                 >
                   <div className="dp">
                     <img src="peakpx (1).jpg" alt="dp" />
@@ -228,6 +225,12 @@ function Dashboard() {
 
         {messages.username && (
           <div className="Send_message">
+                 <button type="button" >    
+              <i
+               className="fa-regular fa-face-smile smile z-20"
+                style={{ fontSize: "25px" }}
+              ></i>
+            </button>
             <input
               onChange={(e) => setSender_msg(e.target.value)}
               value={sender_msg}
@@ -236,11 +239,10 @@ function Dashboard() {
               name="Send_message"
               id="message"
             />
-            <button type="button" onClick={sendMessage}>
-              Send{" "}
+            <button type="button" onClick={sendMessage} >    
               <i
-                className="fa-solid fa-arrow-right"
-                style={{ fontSize: "large" }}
+                className="fa-solid fa-arrow-right z-20 right-6 fixed bottom-4"
+                style={{ fontSize: "30px" }}
               ></i>
             </button>
           </div>
