@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Allusers() {
     const [appUser, setAppUsers] = useState([]);
@@ -11,7 +11,7 @@ function Allusers() {
 
     useEffect(() => {
         const fetchUser = async () => {
-            const url = `https://serverapi-2.vercel.app/api/get-users`;
+            const url = `https://serverapi-2.vercel.app/api/get-users/`;
             const response = await axios.get(url);
             setAppUsers(response.data);
             // console.log('Fetched Users:', response.data); 
@@ -42,7 +42,7 @@ function Allusers() {
                     if (user.user_id !== loggedUser.id) {
                         {/* console.log(user.users.id); */}
                         return (
-                            <div key={user.user_id} className="mt-[10px] mb-3 chat_profile cursor-pointer bg-[#f3c4ba] h-[100px] w-[600px] shadow-lg rounded-xl">
+                            <div key={user.user_id} className="mt-[10px] mb-3 chat_profile2 cursor-pointer bg-[#d48775] h-[100px] w-[500px] shadow-lg rounded-xl">
                                 <div className="dp">
                                     <img src="peakpx (1).jpg" alt="dp" />
                                 </div>
@@ -50,7 +50,7 @@ function Allusers() {
                                     <h4>{user.users.name}</h4>
                                     <p className="message_preview">{user.users.email}</p>
                                 </div>
-                                <button onClick={()=>createConversation(user.user_id)} className='bg-green-400 h-[40px] w-[40px] rounded-xl f-right ml-auto mt-[18px] hover:bg-orange-300 '><i class="fa-solid fa-user-plus"></i></button>
+                                <button onClick={()=>createConversation(user.user_id)} className='bg-green-400 h-[40px] w-[40px] rounded-xl f-right ml-auto mt-[18px] hover:bg-orange-300 '><i className="fa-solid fa-user-plus"></i></button>
                                 <ToastContainer />
                             </div>
                         );
